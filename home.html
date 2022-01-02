@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134013867-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-134013867-1');
+		</script>
+
+		<title>Vinnie Drop | Get it on Google Play</title>
+		<link rel="icon" href="images/favicon.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="UTF-8">
+		<meta name="description" content="Play Vinnie Drop and duck and dive your way through hundreds of levels in this classy platform adventure. Join Vinnie on his epic journey to each as money delicious lunch time treats as he can!">
+		<meta name="author" content="Max Mallett">
+		<meta name="theme-color" content="cyan" />
+		<meta property="og:url" content="https://www.vinniedrop.com/images/vinnie-og-image.jpg" />
+		
+		<link rel="stylesheet" type="text/css" href="css/spectre.min.css">
+		<link rel="stylesheet" type="text/css" href="css/animate.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	</head>
+	
+	<body>
+
+		<div id="hero-content" class="animated fadeIn">
+
+			<h1>Vinnie Drop</h1>
+
+			<div id="hero-anim" class="hide-sm">
+				<div id="hero-char" class="animated bounceInDown">
+					<img class="neutral hidden" src="images/char1.png">
+					<img class="falling1" src="images/char2.png">
+					<img class="lookdown hidden" src="images/char3.png">
+				</div>
+				<div id="hero-girder" class="animated slideInUp"><img src="images/girder.png"></div>
+				<div id="hero-text" class="animated jackInTheBox delay-1s"><img src="images/hero-text.png"></div>
+			</div>
+
+			<div id="snow-holder" class="hide-sm">
+				<div class="snow-drop"></div>
+			</div>
+
+			<div class="keyart show-sm" id="nonparallax"></div>
+			<div class="keyart hide-sm" id="parallax">
+				<div class="keyart_layer parallax" id="keyart-0" data-speed="55"></div>		
+				<div class="keyart_layer parallax" id="keyart-1" data-speed="80"></div>	
+				<div class="keyart_layer parallax" id="keyart-2" data-speed="100"></div>				
+			</div>
+
+			<a id="hero-scroll-to"></a>
+
+		</div>
+
+		<div id="main-container">
+
+			<div class="container grid-lg">
+					
+				<section id="top-section">
+					<div class="container grid-md">
+						<h2>PLAY THE TASTIEST GAME!</h2>
+						<div class="desc-text">
+							<p>Love platformers? Fancy a real challenge? Play Vinnie Drop and put your skills to the test!</p>
+						</div>
+					</div>
+					<div class="container grid-md">
+						<div id="video-holder"></div>
+					</div>
+				</section>
+
+				<section id="gallery-section">
+					<div class="container grid-md">
+						<h2>PLAY NOW FOR AWESOME TREATS!</h2>
+						<div class="columns desc-text">
+							<div class="column col-6 col-sm-12">
+								<p>It's lunchtime and Vinnie is seriously hungry. Grab some of the city's finest cuisine on the way to the finish line to beat your highscore! Beat all of the levels and prove you can tap with the best of them.</p>
+							</div>
+							<div class="column col-6 col-sm-12">
+								<p>Control Vinnie by tapping the screen as he makes his way down the skyscraper. Timing is key. Land on girders, trampolines and conveyors. Avoid falling off ledges or landing on the dreaded cone spikes!</p>
+							</div> 
+						</div>
+					</div>
+					
+					<div class="container grid-md">
+						<div id="image-gallery" class="columns">
+							<div class="column col-6 col-sm-12"><div class="gal-image"></div></div>
+							<div class="column col-6 col-sm-12"><div class="gal-image"></div></div>
+							<div class="column col-6 col-sm-12"><div class="gal-image"></div></div>
+							<div class="column col-6 col-sm-12"><div class="gal-image"></div></div>
+						</div>
+					</div>
+				</section>
+
+				<section id="play-button-section">
+					<button id="play-button" href="https://play.google.com/store/apps/details?id=air.vinnieDrop">PLAY</button>
+				</section>
+				
+			</div>
+
+			<section class="ad-section">
+				<div class="container grid-lg">
+					<div class="amazon-ad-container">
+						<div id="amzn-assoc-ad-8e640c14-3197-4ef6-a3d9-09485f6b4748" ></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=8e640c14-3197-4ef6-a3d9-09485f6b4748"></script>
+					</div>
+				</div>
+			</section>
+
+		</div>
+
+
+		<script src="js/firewizard.js"></script>
+		<script src="js/snowfall.js"></script>
+		<script type="text/javascript">
+
+			$(document).ready(function () {
+
+				var oHeroCharNeutral = document.querySelector('#hero-char .neutral'),
+					oHeroCharFalling1 = document.querySelector('#hero-char .falling1'),
+					bHeroScrollToFadedOut = false;
+
+				/* Character animation */
+				setTimeout(function () {
+
+					// Swap char states
+					oHeroCharNeutral.classList.remove('hidden');
+					oHeroCharFalling1.classList.add('hidden');
+
+					// Start snowfall
+					SnowFall.init({
+						container: $('#snow-holder')
+					});
+
+					// Add event listeners
+					document.getElementById('hero-char').addEventListener('click', function () {
+						$('html,body').animate({
+							scrollTop: $("#top-section").offset().top - 50
+						}, 1500);
+					});
+					document.getElementById('hero-scroll-to').addEventListener('click', function () {
+						$('html,body').animate({
+							scrollTop: $("#top-section").offset().top - 50
+						}, 1500);
+					});
+					$(window).scroll(function() {
+						if (window.pageYOffset > 100 && !bHeroScrollToFadedOut) {
+							bHeroScrollToFadedOut = true;
+							$('#hero-scroll-to').fadeOut(500);
+						} else if (window.pageYOffset <= 100 && bHeroScrollToFadedOut) {
+							bHeroScrollToFadedOut = false;
+							$('#hero-scroll-to').fadeIn(500);
+						}
+					});
+
+					// CTA click
+					document.getElementById('play-button').addEventListener('click', function () {
+						window.location.href = 'https://play.google.com/store/apps/details?id=air.vinnieDrop';
+					});
+					
+				}, 700);
+
+			});
+
+		</script>
+	
+	</body>
+	<footer>
+		<div class="footer-links">
+			<a href="home.html">Home</a>
+			<a href="privacy-policy.html">Privacy Policy</a>
+		</div>
+		<p>Pygmy Hippo Games ©2020. All rights reserved. Web design by Max Mallett.</p>
+	</footer>
+	
+</html>

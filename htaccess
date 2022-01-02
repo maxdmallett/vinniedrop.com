@@ -1,0 +1,11 @@
+#Comment | Uncomment ''RewriteEngine on'' below if it is not in your public_html .htaccess file
+#You only need to have this once in the public_html .htaccess as it covers all other Rewrites
+#RewriteEngine on
+
+#Comment | Force all URLs to https WITHOUT www
+#RewriteCond %{SERVER_PORT} 80
+#RewriteRule ^(.*)$ https://vinniedrop.com/$1 [R,L]
+
+#Comment | Force all URLs to https WITH www
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.vinniedrop.com/$1 [R,L]
